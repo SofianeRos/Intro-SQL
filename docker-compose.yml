@@ -1,4 +1,4 @@
-name: <<PROJECT_NAME>>
+name: init-sql
 
 volumes:
   # Volume docker pour la base de données
@@ -10,7 +10,7 @@ services:
   database:
     container_name: ${COMPOSE_PROJECT_NAME}_db
     image: mariadb:latest
-    ports: 
+    ports:
       - "3307:3306"
     env_file:
       - ./www/.env
@@ -20,7 +20,7 @@ services:
       - data:/var/lib/mysql
       - ./services/database:/root
     restart: always
-  
+
   # Web
   www:
     container_name: ${COMPOSE_PROJECT_NAME}_www
